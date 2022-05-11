@@ -17,20 +17,20 @@ public class Pais {
 	
 	
 	public static Pais paisMasVendedor() {
-		HashMap<Pais,Integer> masVendido = new HashMap<Pais,Integer>();
+		HashMap<Pais,Integer> gana = new HashMap<Pais,Integer>();
 		for(Vehiculo vehiculo:Vehiculo.vehiculos) {
 			Pais pais = vehiculo.getFabricante().getPais();
-			if(masVendido.containsKey(pais)) {
-				masVendido.put(pais, masVendido.get(pais)+1);
+			if(gana.containsKey(pais)) {
+				gana.put(pais, gana.get(pais)+1);
 			}else {
-				masVendido.put(pais,1);
+				gana.put(pais,1);
 			}
 		}
 		int max = 0;
 		Pais maxPais = null;
-		for(Pais pais:masVendido.keySet()) {
-			if(masVendido.get(pais)>max) {
-				max = masVendido.get(pais);
+		for(Pais pais:gana.keySet()) {
+			if(gana.get(pais)>max) {
+				max = gana.get(pais);
 				maxPais = pais;
 			}
 		}
